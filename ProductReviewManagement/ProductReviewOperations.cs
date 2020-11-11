@@ -61,5 +61,11 @@ namespace ProductReviewManagement
             foreach(var list in recordedData)
                 Console.WriteLine(list.ProductID+"---->"+list.Average);
         }
+        public void GetRecordsWithReviewNice()
+        {
+            var recordedData = from products in productTable.AsEnumerable() where products.Field<string>("Reviews").ToUpper().Contains("NICE") select products;
+            foreach(var product in recordedData)
+                Console.WriteLine("ProductID: " + product.Field<int>("ProductID") + " UserID: " + product.Field<int>("UserID") + " Rating: " + product.Field<double>("Rating") + " Reviews: " + product.Field<string>("Reviews") + " isLike: " + product.Field<bool>("isLike"));
+        }
     }
 }
