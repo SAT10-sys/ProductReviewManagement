@@ -49,5 +49,11 @@ namespace ProductReviewManagement
             foreach (ProductReview product in productReview)
                 productTable.Rows.Add(product.ProductID, product.UserID, product.Rating, product.Review, product.isLike);
         }
+        public void GetRecordsWithIsLikeValueTrue()
+        {
+            var recordedData = from products in productTable.AsEnumerable() where products.Field<bool>("isLike") == true select products;
+            foreach (var product in recordedData)
+                Console.WriteLine("ProductID: " + product.Field<int>("ProductID") + " UserID: " + product.Field<int>("UserID") + " Rating: " + product.Field<double>("Rating") + " Reviews: " + product.Field<string>("Reviews") + " isLike: " + product.Field<bool>("isLike"));
+        }
     }
 }
