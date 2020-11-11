@@ -47,8 +47,9 @@ namespace ProductReviewManagement
             productReviewOperations.InsertValuesInDataTable(productReviewList);
             Console.WriteLine("Values inserted successfully");
             Console.WriteLine("----------------------------");
-            Console.WriteLine("Displaying records with isLike value true");
-            productReviewOperations.GetRecordsWithIsLikeValueTrue();
+            Console.WriteLine("Displaying average ratings of each product");
+            //productReviewOperations.GetRecordsWithIsLikeValueTrue();
+            productReviewOperations.GetAverageRating();
         }
     }
 }
