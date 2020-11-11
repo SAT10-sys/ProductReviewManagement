@@ -47,10 +47,11 @@ namespace ProductReviewManagement
             productReviewOperations.InsertValuesInDataTable(productReviewList);
             Console.WriteLine("Values inserted successfully");
             Console.WriteLine("----------------------------");
-            Console.WriteLine("Displaying records with rating nice");
+            Console.WriteLine("Displaying records with user id 10 and arranged by ratings");
             //productReviewOperations.GetRecordsWithIsLikeValueTrue();
             //productReviewOperations.GetAverageRating();
-            productReviewOperations.GetRecordsWithReviewNice();
+            //productReviewOperations.GetRecordsWithReviewNice();
+            productReviewOperations.GetRecordsWithUserID10();
         }
     }
 }
