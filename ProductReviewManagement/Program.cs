@@ -32,6 +32,9 @@ namespace ProductReviewManagement
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Displaying all Products having ID 1, 4 or 9 and rating greater than 3");
             productReviewOperations.GetProductsRatingGreaterThanThreeAndProductID149(productReviewList);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Displaying count of reviews by ID");
+            productReviewOperations.GetCountOfReviewsForEachProductID(productReviewList);
         }
     }
 }
