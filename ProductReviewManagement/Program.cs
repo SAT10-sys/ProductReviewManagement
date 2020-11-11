@@ -29,6 +29,9 @@ namespace ProductReviewManagement
             Console.WriteLine("Displaying Best Rated Top 3 Products");
             ProductReviewOperations productReviewOperations = new ProductReviewOperations();
             productReviewOperations.GetTopBestRatedProducts(productReviewList);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Displaying all Products having ID 1, 4 or 9 and rating greater than 3");
+            productReviewOperations.GetProductsRatingGreaterThanThreeAndProductID149(productReviewList);
         }
     }
 }
