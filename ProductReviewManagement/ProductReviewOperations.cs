@@ -55,5 +55,11 @@ namespace ProductReviewManagement
             foreach (var product in recordedData)
                 Console.WriteLine("ProductID: " + product.Field<int>("ProductID") + " UserID: " + product.Field<int>("UserID") + " Rating: " + product.Field<double>("Rating") + " Reviews: " + product.Field<string>("Reviews") + " isLike: " + product.Field<bool>("isLike"));
         }
+        public void GetAverageRating()
+        {
+            var recordedData=productTable.AsEnumerable().GroupBy(e => e.Field<int>("ProductID")).Select(x => new { ProductID = x.Key, Average = x.Average(y => y.Field<double>("Rating")) });
+            foreach(var list in recordedData)
+                Console.WriteLine(list.ProductID+"---->"+list.Average);
+        }
     }
 }
