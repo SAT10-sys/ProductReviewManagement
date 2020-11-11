@@ -35,6 +35,9 @@ namespace ProductReviewManagement
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Displaying count of reviews by ID");
             productReviewOperations.GetCountOfReviewsForEachProductID(productReviewList);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Displaying only ProductID and Review");
+            productReviewOperations.RetrieveOnlyProductIDAndReview(productReviewList);
         }
     }
 }
