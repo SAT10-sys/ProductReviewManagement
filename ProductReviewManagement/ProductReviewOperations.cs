@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Data;
 
 namespace ProductReviewManagement
 {
     public class ProductReviewOperations
     {
+        public readonly DataTable productTable = new DataTable();
         public void GetTopBestRatedProducts(List<ProductReview> productReview)
         {
             var recordedData = (from products in productReview orderby products.Rating descending select products).Take(3);
@@ -36,6 +38,16 @@ namespace ProductReviewManagement
             var recordedData = (from products in productReview select products).Skip(5);
             foreach(var list in recordedData)
                 Console.WriteLine("ProductID: " + list.ProductID + "\nUserId: " + list.UserID + "\nRating: " + list.Rating + "\nReview: " + list.Review + "\nIsLike: " + list.isLike);
+        }
+        public void InsertValuesInDataTable(List<ProductReview> productReview)
+        {
+            productTable.Columns.Add("ProductID", typeof(int));
+            productTable.Columns.Add("UserID", typeof(int));
+            productTable.Columns.Add("Rating", typeof(double));
+            productTable.Columns.Add("Reviews", typeof(string));
+            productTable.Columns.Add("isLike", typeof(bool));
+            foreach (ProductReview product in productReview)
+                productTable.Rows.Add(product.ProductID, product.UserID, product.Rating, product.Review, product.isLike);
         }
     }
 }
