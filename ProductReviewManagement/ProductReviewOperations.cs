@@ -67,5 +67,15 @@ namespace ProductReviewManagement
             foreach(var product in recordedData)
                 Console.WriteLine("ProductID: " + product.Field<int>("ProductID") + " UserID: " + product.Field<int>("UserID") + " Rating: " + product.Field<double>("Rating") + " Reviews: " + product.Field<string>("Reviews") + " isLike: " + product.Field<bool>("isLike"));
         }
+        public void GetRecordsWithUserID10()
+        {
+            productTable.Rows.Add(1, 10, 2, "Good", false);
+            productTable.Rows.Add(5, 10, 6, "Good", true);
+            productTable.Rows.Add(12, 10, 7, "Nice", true);
+            productTable.Rows.Add(9, 10, 2, "Bad", false);
+            var recordedData = from products in productTable.AsEnumerable() where products.Field<int>("UserID") == 10 orderby products.Field<double>("Rating") select products;
+            foreach(var product in recordedData)
+                Console.WriteLine("ProductID: " + product.Field<int>("ProductID") + " UserID: " + product.Field<int>("UserID") + " Rating: " + product.Field<double>("Rating") + " Reviews: " + product.Field<string>("Reviews") + " isLike: " + product.Field<bool>("isLike"));
+        }
     }
 }
