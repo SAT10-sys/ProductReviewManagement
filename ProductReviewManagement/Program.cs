@@ -23,7 +23,7 @@ namespace ProductReviewManagement
                 new ProductReview(){ProductID=10,UserID=1,Rating=8,Review="Nice",isLike=true},
                 new ProductReview(){ProductID=11,UserID=1,Rating=3,Review="Nice",isLike=true}
             };
-            foreach(var list in productReviewList)
+            /**foreach(var list in productReviewList)
                 Console.WriteLine("ProductID: "+list.ProductID+"\nUserId: "+list.UserID+"\nRating: "+list.Rating+"\nReview: "+list.Review+"\nIsLike: "+list.isLike);
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Displaying Best Rated Top 3 Products");
@@ -41,6 +41,11 @@ namespace ProductReviewManagement
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Skip Top 5 Records and Display Other Records");
             productReviewOperations.SkipTop5Records(productReviewList);
+            */
+            Console.WriteLine("Inserting the values in data table and displaying it");
+            ProductReviewOperations productReviewOperations = new ProductReviewOperations();
+            productReviewOperations.InsertValuesInDataTable(productReviewList);
+            Console.WriteLine("Values inserted successfully");
         }
     }
 }
