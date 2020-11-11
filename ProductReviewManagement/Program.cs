@@ -8,6 +8,7 @@ namespace ProductReviewManagement
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Product Review Management With Linq");
+            Console.WriteLine("Displaying All Products");
             List<ProductReview> productReviewList = new List<ProductReview>()
             {
                 new ProductReview(){ProductID=1,UserID=1,Rating=2,Review="Good",isLike=true},
@@ -24,6 +25,10 @@ namespace ProductReviewManagement
             };
             foreach(var list in productReviewList)
                 Console.WriteLine("ProductID: "+list.ProductID+"\nUserId: "+list.UserID+"\nRating: "+list.Rating+"\nReview: "+list.Review+"\nIsLike: "+list.isLike);
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Displaying Best Rated Top 3 Products");
+            ProductReviewOperations productReviewOperations = new ProductReviewOperations();
+            productReviewOperations.GetTopBestRatedProducts(productReviewList);
         }
     }
 }
